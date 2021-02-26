@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Finder</title>
+    <meta name="author" content="Shanmugam M" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, Javascript, Meal Finder, MealAPI, Themealdb"
+    />
+    <meta
+      name="description"
+      content="A simple meal finding app using vanilla JS by themealdb.com as API Source"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicon_io/site.webmanifest" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="toggler">
+      <label for="toggle" class="label">
+        <input type="checkbox" class="toggleInput" id="toggle" />
+        <div class="toggle-btn"></div>
+      </label>
+    </div>
+
+    <section class="container" id="container">
+      <div class="form__container" id="formContainer">
+        <h1 class="title">Meal Finder</h1>
+
+        <form class="form" id="form">
+          <input
+            type="text"
+            class="form-input"
+            id="formInput"
+            autofocus
+            autocomplete="off"
+            placeholder="Search your meal  (e.g: pasta)"
+            accesskey="s"
+          />
+          <div class="form-buttons">
+            <button class="btn search-btn" id="searchBtn">
+              <i class="fas fa-search"></i>
+            </button>
+            <button class="btn random-btn" id="randomBtn" accesskey="r">
+              <i class="fas fa-random"></i>
+            </button>
+          </div>
+        </form>
+
+        <h1 class="search-title" id="searchTitleBox">
+          <!-- Search Result for "<span class="search-title-name" id="searchTitle"
+            >Pasta</span
+          >" -->
+        </h1>
+      </div>
+
+      <section class="meals-list" id="mealsList">
+        <!-- <div class="meal">
+          <img
+            class="meal-img"
+            src="https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg"
+            alt="img"
+          />
+          <div class="meal-info">
+            <h1 class="meal-title">pasta and a working method</h1>
+          </div>
+        </div>
+        <div class="meal">
+          <img
+            class="meal-img"
+            src="https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg"
+            alt="img"
+          />
+          <div class="meal-info">
+            <h1 class="meal-title">pasta and a working method</h1>
+          </div>
+        </div> -->
+      </section>
+
+      <section class="single__meal" id="single__meal">
+        <!-- <h1 class="single__meal--title" id="single__meal--title"></h1> -->
+        <!-- <img id="single__meal--img" class="single__meal--img" /> -->
+
+        <!-- <div class="single__meal--details">
+          <p class="single__meal--details-type" id="single__meal--type"></p>
+          <p class="single__meal--details-area" id="single__meal--area"></p>
+        </div> -->
+
+        <!-- <div class="single__meal--instruction">
+          <h1 class="single__meal--instruction-title">How To</h1>
+          <p class="single__meal--instruction-steps">
+            Saute the onions in the 3-4 tablespoons olive oil Add the beef cubes
+            or the chicken cutlets, sear for 3-4 min on each side Add 1 liter of
+            water or just enough to cover the meat Cook over medium heat until
+            the meat is done (I usually do this in the pressure cooker and press
+            them for 5 min) Add the frozen mulukhyia and stir until it thaws
+            completely and then comes to a boil In another pan add the 1/4 to
+            1/2 cup of olive oil and the cloves of garlic and cook over medium
+            low heat until you can smell the garlic (don’t brown it, it will
+            become bitter) Add the oil and garlic to the mulukhyia and lower the
+            heat and simmer for 5-10 minutes Add salt to taste Serve with a
+            generous amount of lemon juice. You can serve it with some short
+            grain rice or some pita bread
+          </p>
+        </div> -->
+
+        <!-- <div class="single__meal--ingredients">
+          <h1 class="single__meal--ingredients-title">Ingredients</h1>
+          <ul class="single__meal--ingredients-list">
+            <li>Mulukhiyah - 800g</li>
+            <li>Muliyah - 800g</li>
+            <li>Mukhiyah - 800g</li>
+            <li>Mukhiyah - 800g</li>
+            <li>Myah - 800g</li>
+            <li>Mulukhiyah - 800g</li>
+            <li>Mulu - 800g</li>
+          </ul>
+        </div> -->
+
+        <!-- <div class="single__meal--watch">
+          <a href="https://www.youtube.com/watch?v=1IszT_guI08" target="_blank"
+            ><span><i class="fab fa-youtube"></i></span>Watch now</a
+          >
+        </div> -->
+      </section>
+    </section>
+
+    <section class="loader" id="loader" style="display: none;">
+      <div class="loader__bar loader__bar--1"></div>
+      <div class="loader__bar loader__bar--2"></div>
+      <div class="loader__bar loader__bar--3"></div>
+      <div class="loader__bar loader__bar--4"></div>
+      <div class="loader__bar loader__bar--5"></div>
+    </section>
+
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>

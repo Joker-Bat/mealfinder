@@ -1,0 +1,60 @@
+
+// Dark theme switcher
+/* DArk mode toggle */
+.toggler {
+    z-index: 10;
+    position: fixed;
+    top: 3%;
+    right: 7%;
+
+    @include respond(phone) {
+        right: 2%;
+        top: 1%;
+    }
+}
+
+
+.toggleInput {
+    display: none;
+}
+
+.toggle-btn {
+    width: 70px;
+    height: 30px;
+    background-color: var(--secondary);
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+
+    @include respond(phone) {
+        width: 50px;
+        height: 25px;
+    }
+}
+
+.toggle-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--heading);
+    transition: transform .3s;
+
+    @include respond(phone) {
+        width: 50%;
+    }
+}
+
+.toggleInput:checked + .toggle-btn {
+    border: 1px solid var(--secondary);
+}
+
+.toggleInput:checked + .toggle-btn::after {
+    transform: translateX(150%);
+
+    @include respond(phone) {
+        transform: translateX(100%);
+    }
+}

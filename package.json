@@ -1,0 +1,18 @@
+{
+  "name": "meal-finder",
+  "version": "1.0.0",
+  "description": "A small Meal finder project build using themealdb.com API.",
+  "main": "script.js",
+  "scripts": {
+    "watch-scss": "sass scss/style.scss css/style.css --watch",
+    "start": "live-server",
+    "dev-start": "npm-run-all --parallel start watch-scss"
+  },
+  "author": "Shanmugam M",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.32.5"
+  }
+}

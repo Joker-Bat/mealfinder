@@ -1,0 +1,446 @@
+/*
+
+ 0 - 600px --->  Mobile Devices
+ 600 - 900 ----> Tablet portrait
+ 900 - 1200 ---> Tablet Landscape
+ [1200 - 1800] ---> Our normal styles apply
+ 1800+ ----> big Screen
+
+
+
+ $breakpoint argument choices
+
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --primary: #333;
+  --secondary: #eee;
+  --heading: rgb(255, 89, 89);
+  --white: #fff;
+  --black: #000;
+}
+
+[data-theme=light] {
+  --primary: #eee;
+  --secondary: #333;
+}
+
+::selection {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+h1,
+h1,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Gloria Hallelujah", cursive;
+  text-transform: capitalize;
+  color: var(--heading);
+}
+
+button {
+  appearance: none;
+  border: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+@media screen and (max-width: 37.5em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-family: "JetBrains Mono", monospace;
+  transition: color 0.2s, background-color 0.4s;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* DArk mode toggle */
+.toggler {
+  z-index: 10;
+  position: fixed;
+  top: 3%;
+  right: 7%;
+}
+@media screen and (max-width: 37.5em) {
+  .toggler {
+    right: 2%;
+    top: 1%;
+  }
+}
+
+.toggleInput {
+  display: none;
+}
+
+.toggle-btn {
+  width: 70px;
+  height: 30px;
+  background-color: var(--secondary);
+  border-radius: 20px;
+  border: 1px solid var(--primary);
+}
+@media screen and (max-width: 37.5em) {
+  .toggle-btn {
+    width: 50px;
+    height: 25px;
+  }
+}
+
+.toggle-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--heading);
+  transition: transform 0.3s;
+}
+@media screen and (max-width: 37.5em) {
+  .toggle-btn::after {
+    width: 50%;
+  }
+}
+
+.toggleInput:checked + .toggle-btn {
+  border: 1px solid var(--secondary);
+}
+
+.toggleInput:checked + .toggle-btn::after {
+  transform: translateX(150%);
+}
+@media screen and (max-width: 37.5em) {
+  .toggleInput:checked + .toggle-btn::after {
+    transform: translateX(100%);
+  }
+}
+
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid var(--secondary);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+.form .form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 2rem;
+  border: 1px solid var(--secondary);
+  border-radius: 5px;
+  font-family: "Gloria Hallelujah", cursive;
+  margin-bottom: 1.5rem;
+}
+.form .form-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.form .form-buttons {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.form .form-buttons > * {
+  background-color: var(--primary);
+  color: var(--secondary);
+  transition: color 0.2s, background-color 0.2s, transform 0.2s;
+  border-radius: 50%;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+.form .form-buttons > *:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+  transform: scale(0.8);
+}
+.form .form-buttons > * > i {
+  font-size: 5rem;
+}
+
+.search-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  color: var(--secondary);
+}
+.search-title-name {
+  font-weight: 800;
+  color: var(--heading);
+}
+
+.meals-list {
+  margin-bottom: 5rem;
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+}
+@media screen and (max-width: 56.25em) {
+  .meals-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.meals-list .meal {
+  position: relative;
+  border-radius: 5px;
+  outline: 3px solid var(--secondary);
+  outline-offset: 0.5rem;
+}
+.meals-list .meal:hover {
+  outline: 3px solid var(--heading);
+}
+.meals-list .meal:hover .meal-info {
+  visibility: visible;
+  opacity: 1;
+}
+.meals-list .meal .meal-img {
+  width: 100%;
+  border-radius: 5px;
+}
+.meals-list .meal .meal-img:hover + .meals-list .meal .meal-info {
+  background-color: red;
+}
+.meals-list .meal .meal-info {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+.meals-list .meal .meal-info .meal-title {
+  text-align: center;
+  width: 100%;
+  font-size: 2.2rem;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--white);
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.single__meal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -3rem;
+}
+.single__meal--title {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.single__meal--img {
+  width: 50%;
+  border-radius: 5px;
+  margin-bottom: 4rem;
+}
+.single__meal--img:hover {
+  outline: 3px solid var(--heading);
+  outline-offset: 1rem;
+}
+@media screen and (max-width: 37.5em) {
+  .single__meal--img {
+    width: 80%;
+  }
+}
+.single__meal--details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border: 2px dashed var(--heading);
+  border-radius: 5px;
+  width: 80%;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+.single__meal--details-type {
+  margin-bottom: 1rem;
+}
+.single__meal--instruction {
+  padding: 1rem 0.5rem;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.single__meal--instruction-title {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+.single__meal--ingredients {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+}
+.single__meal--ingredients-title {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+.single__meal--ingredients-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.single__meal--ingredients-list li {
+  background-color: var(--white);
+  color: var(--black);
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+@media screen and (max-width: 37.5em) {
+  .single__meal--ingredients-list li {
+    padding: 0.5rem 0.6rem;
+  }
+}
+.single__meal--watch {
+  text-align: center;
+  background-color: var(--secondary);
+  color: var(--heading);
+  border: 1px solid transparent;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  border-radius: 5px;
+  transition: background-color 0.2s, border 0.3s;
+}
+.single__meal--watch:hover {
+  background-color: var(--primary);
+  border: 1px solid var(--heading);
+}
+.single__meal--watch a {
+  color: currentColor;
+}
+.single__meal--watch a span {
+  margin-right: 2rem;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.loader__bar {
+  width: 6px;
+  background-color: var(--heading);
+  border-radius: 5px;
+  transform: scaleY(0.5);
+  animation: loader 0.4s ease-in-out infinite;
+}
+.loader__bar--1 {
+  height: 30px;
+}
+.loader__bar--2 {
+  height: 60px;
+  animation-delay: 0.1s;
+}
+.loader__bar--3 {
+  transform: translateY(12px);
+  height: 70px;
+  animation: centerBar 0.4s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
+.loader__bar--4 {
+  height: 60px;
+  animation-delay: 0.1s;
+}
+.loader__bar--5 {
+  height: 30px;
+  animation-delay: 0.25s;
+}
+.loader__bar:not(:last-child) {
+  margin-right: 0.8rem;
+}
+
+@keyframes loader {
+  0%, 100% {
+    transform: scaleY(0.9);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes centerBar {
+  0%, 100% {
+    transform: translateY(12px) scaleY(0.9);
+  }
+  50% {
+    transform: translateY(12px) scaleY(1);
+  }
+}
+.container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 2rem;
+}
+
+.form__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form__container .title {
+  margin-bottom: 2rem;
+  color: var(--heading);
+  font-size: 5rem;
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+/*# sourceMappingURL=style.css.map */

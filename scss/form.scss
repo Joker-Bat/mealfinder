@@ -1,0 +1,64 @@
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid var(--secondary);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+
+
+  & .form-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 2rem;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    font-family: "Gloria Hallelujah", cursive;
+    margin-bottom: 1.5rem;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  & .form-buttons {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    & > * {
+      background-color: var(--primary);
+      color: var(--secondary);
+      transition: color 0.2s, background-color 0.2s, transform .2s;
+      border-radius: 50%;
+      padding: 0.6rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--secondary);
+        color: var(--primary);
+        transform: scale(.8);
+      }
+    }
+
+    & > * > i {
+      font-size: 5rem;
+    }
+  }
+}
+
+.search-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  color: var(--secondary);
+
+  &-name {
+    font-weight: 800;
+    color: var(--heading);
+  }
+}

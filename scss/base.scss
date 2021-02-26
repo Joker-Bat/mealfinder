@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --primary: #333;
+  --secondary: #eee;
+  --heading: rgb(255, 89, 89);
+  --white: #fff;
+  --black: #000;
+}
+
+[data-theme="light"] {
+  --primary: #eee;
+  --secondary: #333;
+}
+
+// Styling selection
+::selection {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+h1,
+h1,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Gloria Hallelujah", cursive;
+  text-transform: capitalize;
+  color: var(--heading);
+}
+
+// Remove default style for buttons
+button {
+  appearance: none;
+  border: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @include respond(phone) {
+    font-size: 50%;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-family: "JetBrains Mono", monospace;
+  transition: color 0.2s, background-color 0.4s;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+// It will overwrite out theme switch (doesn't work switch)
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     --primary: #eee;
+//     --secondary: #333;
+//   }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --primary: #333;
+//     --secondary: #eee;
+//   }
+// }
