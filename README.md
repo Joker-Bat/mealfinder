@@ -2,6 +2,8 @@
 
 Search and generate random meals from the [themealdb.com](www.themealdb.com) API
 
+Preview this project here 👉 [MealFinder](https://joker-bat.github.io/mealfinder/)
+
 ## Project Specifications
 
 - Display UI with form to search and button to generate
