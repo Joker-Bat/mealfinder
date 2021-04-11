@@ -17,8 +17,8 @@ export const clearLoader = () => {
 };
 
 export const clearTitle = () => {
-  elements.searchTitleBox.innerHTML = '';
-}
+  elements.searchTitleBox.innerHTML = "";
+};
 
 export const renderTitle = (type) => {
   // console.log(elements.formInput.value);
@@ -38,7 +38,7 @@ export const renderMealList = (meals) => {
   const markup = meals
     .map((meal) => {
       return `
-    <div class="meal" data-id=${meal.idMeal}>
+    <div class="meal swiper-slide" data-id=${meal.idMeal}>
       <img
         class="meal-img"
         src=${meal.strMealThumb}
@@ -53,7 +53,51 @@ export const renderMealList = (meals) => {
     })
     .join("");
 
-  elements.mealList.insertAdjacentHTML("beforeend", markup);
+  let finalMarkup = `
+      <div class="swiper-wrapper">
+        ${markup}
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+  `;
+
+  elements.mealList.insertAdjacentHTML("beforeend", finalMarkup);
+
+  // To get number of items get
+  let count = document.querySelector(".swiper-wrapper").children.length;
+  let length = count > 3 ? true : false;
+
+  // To get current viewport width
+  let viewportWidth = document.documentElement.clientWidth;
+  let slidesToShow = viewportWidth > 600 ? 2.2 : 1.8;
+
+  // Swiper js
+  const swiper = new Swiper(".swiper-container", {
+    // Optional parameters
+    loop: length,
+    slidesPerView: slidesToShow,
+    spaceBetween: 35,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      type: "bullets",
+      dynamicBullets: count > 10,
+      dynamicMainBullets: 8,
+    },
+
+    mousewheel: {
+      invert: true,
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 };
 
 // Single meal page

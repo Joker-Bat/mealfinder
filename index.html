@@ -45,6 +45,13 @@
       crossorigin="anonymous"
     />
 
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
@@ -67,7 +74,7 @@
             id="formInput"
             autofocus
             autocomplete="off"
-            placeholder="Search your meal  (e.g: pasta)"
+            placeholder="Search your meal  (e.g: chicken)"
             accesskey="s"
           />
           <div class="form-buttons">
@@ -87,7 +94,7 @@
         </h1>
       </div>
 
-      <section class="meals-list" id="mealsList">
+      <section class="meals-list swiper-container" id="mealsList">
         <!-- <div class="meal">
           <img
             class="meal-img"
@@ -158,7 +165,7 @@
       </section>
     </section>
 
-    <section class="loader" id="loader" style="display: none;">
+    <section class="loader" id="loader" style="display: none">
       <div class="loader__bar loader__bar--1"></div>
       <div class="loader__bar loader__bar--2"></div>
       <div class="loader__bar loader__bar--3"></div>
@@ -166,6 +173,10 @@
       <div class="loader__bar loader__bar--5"></div>
     </section>
 
+    <!-- Javascript -->
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script type="module" src="./js/script.js"></script>
   </body>
 </html>

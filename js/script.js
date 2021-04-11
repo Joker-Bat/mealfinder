@@ -46,7 +46,7 @@ const searchMeal = async () => {
 
 const getSingleMeal = async (e) => {
   const selectedMeal = e.target.closest(".meal");
-  const id = selectedMeal.getAttribute("data-id");
+  const id = selectedMeal?.getAttribute("data-id");
 
   if (id) {
     state.searchById = new SearchById(id);
