@@ -206,6 +206,7 @@ body::-webkit-scrollbar {
   width: 100%;
   margin-bottom: 5rem;
   position: relative;
+  padding-bottom: 4rem;
 }
 
 .swiper-wrapper {
